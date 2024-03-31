@@ -53,8 +53,13 @@ function App() {
           </div>
 
           <button className="button" type="submit">
-            Login
+            Entrar
           </button>
+
+          <p>
+            Não possui uma conta?
+            <a href="#">Cadastre-se</a>
+          </p>
         </Form>
       </Formik>
     </div>
