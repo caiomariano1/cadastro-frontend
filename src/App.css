@@ -1,0 +1,32 @@
+h1 {
+    margin: 0px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.login-form {
+    padding: 5px;
+}
+
+.form-field {
+    display: block;
+    padding: 5px;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.form-error {
+    display: block;
+    color: red;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    width: 80px;
+}
