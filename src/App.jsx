@@ -53,7 +53,7 @@ function App() {
           </div>
 
           <button className="button" type="submit">
-            Entrar
+            <a href="https://localhost:7086/swagger/index.html">Entrar</a>
           </button>
 
           <p>
