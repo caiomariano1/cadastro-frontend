@@ -3,7 +3,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 
 function App() {
-  const handleClickLogin = (values) => console.log(values);
+  const handleClickLogin = (values) => {
+    validationLogin.isValid(values).then((valid) => {
+      if (valid) {
+        window.location.href = "https://localhost:7086/swagger/index.html";
+      }
+    });
+  };
   const validationLogin = yup.object().shape({
     email: yup
       .string()
@@ -15,11 +21,16 @@ function App() {
       .required("É necessário preencher este campo"),
   });
 
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+
   return (
     <div className="conteiner">
       <h1>Login</h1>
       <Formik
-        initialValues={{}}
+        initialValues={initialValues}
         onSubmit={handleClickLogin}
         validationSchema={validationLogin}
       >
@@ -53,7 +64,8 @@ function App() {
           </div>
 
           <button className="button" type="submit">
-            <a href="https://localhost:7086/swagger/index.html">Entrar</a>
+            {/* <a href="https://localhost:7086/swagger/index.html">Entrar</a> */}
+            Entrar
           </button>
 
           <p>
