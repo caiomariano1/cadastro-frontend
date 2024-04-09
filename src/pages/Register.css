@@ -32,7 +32,8 @@ html, body {
 h1 {
     margin: 0px;
     margin-bottom: 40px;
-    color: #4164ff;
+    color: #000;
+    font-weight: bold;
     text-shadow: 2px 2px 2px #bac7ff;
 }
 
@@ -49,6 +50,11 @@ h1 {
     margin-bottom: 10px;
     border: 1px solid #4B4B4B;
     border-radius: 12px;
+}
+
+.form-field:focus {
+    outline: 1px solid #2c92ff;
+    box-shadow: 1px 1px 2px #bac7ff;
 }
 
 .form-error {
