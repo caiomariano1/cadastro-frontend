@@ -1,3 +1,4 @@
+import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
