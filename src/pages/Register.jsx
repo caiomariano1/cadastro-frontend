@@ -8,7 +8,7 @@ const Register = () => {
     console.log(values);
     validationRegister.isValid(values).then((valid) => {
       if (valid) {
-        <Link to="/"> página de Login</Link>;
+        window.location.href = "http://localhost:5173/";
       }
     });
   };
@@ -20,6 +20,10 @@ const Register = () => {
     password: yup
       .string()
       .min(8, "A senha deve ter pelo menos 8 caracteres")
+      .required("É necessário preencher este campo"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "As senhas devem ser iguais")
       .required("É necessário preencher este campo"),
   });
 

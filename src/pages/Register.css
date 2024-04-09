@@ -32,6 +32,8 @@ html, body {
 h1 {
     margin: 0px;
     margin-bottom: 40px;
+    color: #4164ff;
+    text-shadow: 2px 2px 2px #bac7ff;
 }
 
 .login-form {
