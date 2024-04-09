@@ -38,8 +38,9 @@ const Login = () => {
       >
         <Form className="login-form">
           <div className="login-form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email:</label>
             <Field
+              id="email"
               name="email"
               className="form-field"
               placeholder="Digite seu email..."
@@ -52,11 +53,13 @@ const Login = () => {
           </div>
 
           <div className="login-form-group">
-            <label htmlFor="password">Senha</label>
+            <label htmlFor="password">Senha:</label>
             <Field
+              id="password"
               name="password"
               className="form-field"
               placeholder="Digite sua senha..."
+              autoComplete="off"
             />
             <ErrorMessage
               component="span"
