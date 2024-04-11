@@ -1,14 +1,16 @@
 import "./Register.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 const Register = () => {
+  const navigate = useNavigate();
   const handleClickRegister = (values) => {
     console.log(values);
     validationRegister.isValid(values).then((valid) => {
       if (valid) {
-        window.location.href = "http://localhost:5173/";
+        // window.location.href = "http://localhost:5173/";
+        navigate("/");
       }
     });
   };
