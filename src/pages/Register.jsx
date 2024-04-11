@@ -10,7 +10,7 @@ const Register = () => {
     validationRegister.isValid(values).then((valid) => {
       if (valid) {
         // window.location.href = "http://localhost:5173/";
-        navigate("/");
+        navigate("/login");
       }
     });
   };
@@ -99,7 +99,7 @@ const Register = () => {
       <p>
         Voltar para
         {/* <a href="#">Cadastre-se</a> */}
-        <Link to="/"> página de Login</Link>
+        <Link to="/login"> página de Login</Link>
       </p>
     </div>
   );
