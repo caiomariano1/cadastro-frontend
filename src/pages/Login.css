@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,7 +9,7 @@ html, body {
     font-family: "Roboto", sans-serif;
     background-color: #0e76a8
 
-}
+} */
 
 .conteiner {
     background-color: #fff;

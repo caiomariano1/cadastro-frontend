@@ -19,11 +19,11 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home">
-      <h1 className="home">Home</h1>
-      <ul className="home">
+    <div className="divhome">
+      <h1 className="h1home">Home</h1>
+      <ul className="ulhome">
         {contato.map((contato) => (
-          <li key={contato.id}>
+          <li className="lihome" key={contato.id}>
             {contato.nome} - {contato.tel}
           </li>
         ))}

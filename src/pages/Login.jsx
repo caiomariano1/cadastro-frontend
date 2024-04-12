@@ -1,14 +1,18 @@
 import "./Login.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 const Login = () => {
+  const navigate = useNavigate();
   const handleClickLogin = (values) => {
     console.log(values);
     validationLogin.isValid(values).then((valid) => {
+      // if (valid) {
+      //   window.location.href = "https://localhost:7086/swagger/index.html";
+      // }
       if (valid) {
-        window.location.href = "https://localhost:7086/swagger/index.html";
+        navigate("home");
       }
     });
   };

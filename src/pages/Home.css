@@ -1,0 +1,15 @@
+.divhome {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.h1home {
+    text-shadow: none;
+}
