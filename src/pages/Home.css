@@ -1,15 +1,87 @@
 .divhome {
-    width: 100vw;
-    height: 100vh;
-    background-color: #fff;
-    
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  background-color: #fff;
+  width: max-content;
+  height: 100%;
+  margin: auto;
+  margin-top: 95px;
+  margin-bottom: 95px;
+  padding: 20px 15px;
+  border-right: 5px solid #4f4f4f22;
+  border-bottom: 4px solid #4f4f4f22;
+  border-left: 5px solid #4f4f4f22;
+  border-radius: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* margin: auto; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .h1home {
-    text-shadow: none;
+  margin: 0px;
+  margin-bottom: 40px;
+  color: #000;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #bac7ff;
+}
+
+table {
+  border: 2px solid #000;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+th {
+  border: 1px solid #000;
+  padding: 5px;
+}
+
+td {
+  border: 1px solid #000;
+  padding: 5px;
+}
+
+.addcontact {
+  /* display: block;
+    padding: 15px;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #4B4B4B;
+    border-radius: 12px; */
+}
+
+.formadd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.inputadd {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  border: 1px solid #4b4b4b;
+  border-radius: 12px;
+  padding: 5px 10px;
+}
+
+.inputadd:focus {
+  outline: 1px solid #2c92ff;
+  box-shadow: 1px 1px 2px #bac7ff;
+}
+
+.inputbutton {
+  padding: 5px 10px;
+  border: 1px solid #5c73db;
+  border-radius: 12px;
+  background-color: #234c97;
+  color: #fff;
 }
