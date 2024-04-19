@@ -5,16 +5,15 @@ import * as yup from "yup";
 
 const Login = () => {
   const navigate = useNavigate();
-  const handleClickLogin = (values) => {
+  const handleClickLogin = async (values) => {
     console.log(values);
-    validationLogin.isValid(values).then((valid) => {
-      // if (valid) {
-      //   window.location.href = "https://localhost:7086/swagger/index.html";
-      // }
-      if (valid) {
-        navigate("home");
-      }
-    });
+    const valid = await validationLogin.isValid(values);
+    // if (valid) {
+    //   window.location.href = "https://localhost:7086/swagger/index.html";
+    // }
+    if (valid) {
+      navigate("home");
+    }
   };
   const validationLogin = yup.object().shape({
     email: yup

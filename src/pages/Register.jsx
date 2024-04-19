@@ -5,14 +5,13 @@ import * as yup from "yup";
 
 const Register = () => {
   const navigate = useNavigate();
-  const handleClickRegister = (values) => {
+  const handleClickRegister = async (values) => {
     console.log(values);
-    validationRegister.isValid(values).then((valid) => {
-      if (valid) {
-        // window.location.href = "http://localhost:5173/";
-        navigate("/");
-      }
-    });
+    const valid = await validationRegister.isValid(values);
+    if (valid) {
+      // window.location.href = "http://localhost:5173/";
+      navigate("/");
+    }
   };
   const validationRegister = yup.object().shape({
     email: yup
