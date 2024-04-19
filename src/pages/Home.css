@@ -49,15 +49,15 @@ td {
   padding: 5px;
 }
 
-.addcontact {
-  /* display: block;
+/* .addcontact {
+  display: block;
     padding: 15px;
     width: 200px;
     margin-top: 20px;
     margin-bottom: 10px;
     border: 1px solid #4B4B4B;
-    border-radius: 12px; */
-}
+    border-radius: 12px;
+} */
 
 .formadd {
   display: flex;
@@ -89,4 +89,8 @@ td {
   color: #fff;
   margin-left: 0.8px;
   margin-top: 18px;
+}
+
+.inputbutton:hover {
+  background-color: #305db1;
 }
