@@ -94,3 +94,7 @@ td {
 .inputbutton:hover {
   background-color: #305db1;
 }
+
+.inputbutton:active {
+  background-color: #234c97;
+}

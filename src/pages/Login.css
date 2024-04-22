@@ -79,6 +79,10 @@ button:hover {
   background-color: #305db1;
 }
 
+button:active {
+  background-color: #234c97;
+}
+
 button > a {
   color: #fff;
 }
