@@ -1,0 +1,43 @@
+header {
+  background-color: #2f3644;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1100px;
+  margin: 0 auto;
+
+  height: 100px;
+}
+
+.logo h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #29ebaa;
+
+  cursor: pointer;
+}
+
+.btn-addContact button {
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+
+  background-color: #447ce2;
+  border: 0;
+
+  color: #fff;
+
+  padding: 10px 20px;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.btn-addContact button:hover {
+  transition: 0.2s;
+  background-color: #538af0;
+}

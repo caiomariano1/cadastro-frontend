@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import "./Home.css";
 import { useState, useEffect } from "react";
+import HeaderHome from "../Components/HeaderHome";
 
 const url = "https://localhost:7086/api/Contato";
 
@@ -46,6 +48,7 @@ const Home = () => {
 
   return (
     <div className="divhome">
+      <HeaderHome />
       <h1 className="h1home">Contatos</h1>
       <table className="tablehome">
         <thead>
@@ -63,7 +66,7 @@ const Home = () => {
           ))}
         </tbody>
       </table>
-      <div className="addcontact">
+      {/* <div className="addcontact">
         <form className="formadd" onSubmit={handleSubmit}>
           <label>
             Nome:
@@ -87,7 +90,7 @@ const Home = () => {
           </label>
           <input className="inputbutton" type="submit" value="adicionar" />
         </form>
-      </div>
+      </div> */}
     </div>
   );
 };
