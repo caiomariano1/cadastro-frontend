@@ -2,13 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
-html,
+/* html, */
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #0e76a8;
+  /* font-family: "Roboto", sans-serif;
+  background-color: #0e76a8; */
+  height: 100vh;
+  background-color: #fff;
 }
 
 /* .conteiner {
