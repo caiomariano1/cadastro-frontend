@@ -49,7 +49,29 @@ const Home = () => {
   return (
     <div className="divhome">
       <HeaderHome />
-      <h1 className="h1home">Contatos</h1>
+
+      <main>
+        <div className="cards">
+          <div className="card">
+            <header>
+              <h2>Nome</h2>
+            </header>
+            <div className="line"></div>
+            <p>Telefone</p>
+            <div className="btns">
+              <div className="btn-edit">
+                <Link to="/edit">
+                  <button>Editar</button>
+                </Link>
+              </div>
+              <div className="btn-delete">
+                <button>Deletar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      {/* <h1 className="h1home">Contatos</h1>
       <table className="tablehome">
         <thead>
           <tr>
@@ -65,7 +87,7 @@ const Home = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
       {/* <div className="addcontact">
         <form className="formadd" onSubmit={handleSubmit}>
           <label>
