@@ -2,49 +2,26 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import { useState, useEffect } from "react";
 import HeaderHome from "../Components/HeaderHome";
-
-const url = "https://localhost:7086/api/Contato";
+import axios from "axios";
 
 const Home = () => {
-  // const [contato, setContato] = useState([]);
-  // const [nome, setNome] = useState("");
-  // const [tel, setTel] = useState("");
+  const [contato, setContato] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch(url);
+  useEffect(() => {
+    axios
+      .get("https://localhost:7086/api/Contato")
+      .then((response) => {
+        setContato(response.data);
+      })
+      .catch(() => {
+        console.log("deu ruim");
+      });
+  }, []);
 
-  //     const data = await response.json();
-
-  //     setContato(data);
-  //   }
-
-  //   fetchData();
-  // }, []);
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const contato = {
-  //     nome,
-  //     tel,
-  //   };
-
-  //   const response = await fetch(url, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "Application/json",
-  //     },
-  //     body: JSON.stringify(contato),
-  //   });
-
-  //   const contatoAdicionado = await response.json();
-
-  //   setContato((prevContato) => [...prevContato, contatoAdicionado]);
-
-  //   setNome("");
-  //   setTel("");
-  // };
+  function deleteContact(id) {
+    axios.delete(`https://localhost:7086/api/Contato/${id}`);
+    setContato(contato.filter((contato) => contato.id !== id));
+  }
 
   return (
     <div className="divhome">
@@ -52,67 +29,31 @@ const Home = () => {
 
       <main>
         <div className="cards">
-          <div className="card">
-            <header>
-              <h2>Nome</h2>
-            </header>
-            <div className="line"></div>
-            <p>Telefone</p>
-            <div className="btns">
-              <div className="btn-edit">
-                <Link to="/edit">
-                  <button>Editar</button>
-                </Link>
+          {contato.map((contato, key) => {
+            return (
+              <div className="card" key={key}>
+                <header>
+                  <h2>{contato.nome}</h2>
+                </header>
+                <div className="line"></div>
+                <p>{contato.tel}</p>
+                <div className="btns">
+                  <div className="btn-edit">
+                    <Link to={{ pathname: `/edit/${contato.id}` }}>
+                      <button>Editar</button>
+                    </Link>
+                  </div>
+                  <div className="btn-delete">
+                    <button onClick={() => deleteContact(contato.id)}>
+                      Deletar
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="btn-delete">
-                <button>Deletar</button>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </main>
-      {/* <h1 className="h1home">Contatos</h1>
-      <table className="tablehome">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Telefone</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contato.map((contato) => (
-            <tr key={contato.id}>
-              <td>{contato.nome}</td>
-              <td>{contato.tel}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
-      {/* <div className="addcontact">
-        <form className="formadd" onSubmit={handleSubmit}>
-          <label>
-            Nome:
-            <input
-              className="inputadd"
-              type="text"
-              value={nome}
-              name="nome"
-              onChange={(e) => setNome(e.target.value)}
-            />
-          </label>
-          <label>
-            Telefone:
-            <input
-              className="inputadd"
-              type="text"
-              value={tel}
-              name="telefone"
-              onChange={(e) => setTel(e.target.value)}
-            />
-          </label>
-          <input className="inputbutton" type="submit" value="adicionar" />
-        </form>
-      </div> */}
     </div>
   );
 };
