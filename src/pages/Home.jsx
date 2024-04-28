@@ -6,45 +6,45 @@ import HeaderHome from "../Components/HeaderHome";
 const url = "https://localhost:7086/api/Contato";
 
 const Home = () => {
-  const [contato, setContato] = useState([]);
-  const [nome, setNome] = useState("");
-  const [tel, setTel] = useState("");
+  // const [contato, setContato] = useState([]);
+  // const [nome, setNome] = useState("");
+  // const [tel, setTel] = useState("");
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(url);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch(url);
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      setContato(data);
-    }
+  //     setContato(data);
+  //   }
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    const contato = {
-      nome,
-      tel,
-    };
+  //   const contato = {
+  //     nome,
+  //     tel,
+  //   };
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(contato),
-    });
+  //   const response = await fetch(url, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "Application/json",
+  //     },
+  //     body: JSON.stringify(contato),
+  //   });
 
-    const contatoAdicionado = await response.json();
+  //   const contatoAdicionado = await response.json();
 
-    setContato((prevContato) => [...prevContato, contatoAdicionado]);
+  //   setContato((prevContato) => [...prevContato, contatoAdicionado]);
 
-    setNome("");
-    setTel("");
-  };
+  //   setNome("");
+  //   setTel("");
+  // };
 
   return (
     <div className="divhome">
