@@ -1,5 +1,6 @@
 main header {
   display: flex;
+  box-shadow: none;
 }
 
 .cards .card h2 {
@@ -32,8 +33,8 @@ main .cards {
 main .cards .card {
   margin: 0 auto;
 
-  background-color: #2f3644;
-
+  /* background-color: #2f3644; */
+  box-shadow: #64646f33 0px 7px 29px 0px;
   padding: 30px 40px;
   width: 600px;
 
@@ -52,14 +53,14 @@ main .cards .card {
   font-family: "Roboto";
   font-weight: 700;
 
-  color: #d2daf5;
+  color: #000;
 
   font-size: 1.7rem;
 }
 
 .line {
-  background-color: #3e445b;
-  height: 2px;
+  background-color: #64646f33;
+  height: 1px;
 }
 
 p {
@@ -71,7 +72,7 @@ p {
   font-family: "Roboto";
   font-weight: 500;
 
-  color: #b3bacf;
+  color: #000;
 }
 
 .btns {
