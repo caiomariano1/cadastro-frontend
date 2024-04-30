@@ -4,13 +4,13 @@ Este é um sistema desenvolvido em React com integração à uma API e banco de 
 
 ## Funcionalidades
 
-[x] Cadastro de Contatos: Permite adicionar novos contatos, fornecendo o nome e o número de telefone.
+- [x] Cadastro de Contatos: Permite adicionar novos contatos, fornecendo o nome e o número de telefone.
 
-[x] Edição de Contatos: Permite modificar os detalhes de um contato existente, como o nome e o número de telefone.
+- [x] Edição de Contatos: Permite modificar os detalhes de um contato existente, como o nome e o número de telefone.
 
-[x] Exclusão de Contatos: Permite remover contatos da lista.
+- [x] Exclusão de Contatos: Permite remover contatos da lista.
 
-[ ] Autenticação de Usuários: Requer autenticação de usuário através de uma tela de login e cadastro para acessar o sistema.
+- [ ] Autenticação de Usuários: Requer autenticação de usuário através de uma tela de login e cadastro para acessar o sistema.
 
 ## Tecnologias Utilizadas
 
