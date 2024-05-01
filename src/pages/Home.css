@@ -16,11 +16,11 @@ main header {
   cursor: pointer;
 } */
 
-.modal {
+/* .modal {
   width: 80px;
   height: 100px;
   background-color: white;
-}
+} */
 
 main .cards {
   display: flex;
@@ -101,6 +101,11 @@ p {
   width: 210px;
 }
 
+.btn-edit button:hover {
+  background-color: #afe7ff;
+  transition: 0.2s;
+}
+
 /* .btn-readmore button {
   background-color: #3decb1;
 } */
@@ -110,12 +115,17 @@ p {
   width: 210px;
 }
 
-.loading {
+.btn-delete button:hover {
+  background-color: #ff000095;
+  transition: 0.2s;
+}
+
+/* .loading {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 /* .divhome {
   background-color: #fff;
