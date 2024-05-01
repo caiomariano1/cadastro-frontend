@@ -14,10 +14,10 @@ main {
 
 .card-post h1 {
   font-family: "Roboto";
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
 
-  color: #000;
+  color: #3d3737d9;
 
   font-size: 3rem;
   margin-bottom: 5px;
@@ -87,6 +87,11 @@ input {
   border-radius: 10px;
 
   cursor: pointer;
+}
+
+.btn-post button:hover {
+  background-color: #7fd5ae;
+  transition: 0.2s;
 }
 
 .error-message {

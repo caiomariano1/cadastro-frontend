@@ -47,7 +47,7 @@ const Edit = () => {
       <Header />
       <main>
         <div className="card-post">
-          <h1>Criar contato</h1>
+          <h1>Editar contato</h1>
           <div className="line-post"></div>
 
           <div className="card-body-post">

@@ -105,7 +105,7 @@ const Login = () => {
             {/* <a href="#">Cadastre-se</a> */}
             <Link className="link-login" to="/register">
               {" "}
-              Cadastre-se
+              Registre-se
             </Link>
           </p>
         </div>

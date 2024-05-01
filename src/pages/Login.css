@@ -29,15 +29,15 @@
   padding: 20px 0px 20px 0px;
 }
 
-.h1-header-login {
+/* .h1-header-login {
   font-size: 1.7rem;
   font-weight: 500;
-}
+} */
 
 .h2-header-login {
   font-size: 1.2rem;
   color: #cfcfcf;
-  font-weight: normal;
+  font-weight: 400;
   font-size: medium;
   padding: 10px 0px 15px 0px;
   text-align: center;
@@ -74,7 +74,7 @@
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   width: 100%;
-
+  transition: 0.2s;
   background-color: #447ce2;
   margin-top: 20px;
   margin-bottom: 20px;

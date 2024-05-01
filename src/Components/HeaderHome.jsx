@@ -11,6 +11,15 @@ const HeaderHome = () => {
           {/* <h1>Logo</h1> */}
           <img src={Logo} style={{ width: "150px" }} />
         </div>
+        <div className="navbar-home">
+          <Link className="link" to="/">
+            Login
+          </Link>
+          <span className="bar"> | </span>
+          <Link className="link" to="/register">
+            Cadastro
+          </Link>
+        </div>
         <div className="btn-addContact">
           <Link to="/post">
             <button>Adicionar +</button>
