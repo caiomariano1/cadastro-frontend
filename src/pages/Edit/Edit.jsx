@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Header from "../Components/Header";
+import Header from "../../Components/Header/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";

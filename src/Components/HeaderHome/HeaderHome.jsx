@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./HeaderHome.css";
-import Logo from "../assets/contato-logo.svg";
+import Logo from "../../assets/contato-logo.svg";
 
 const HeaderHome = () => {
   return (

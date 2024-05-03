@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
 import { useState, useEffect } from "react";
-import HeaderHome from "../Components/HeaderHome";
+import HeaderHome from "../../Components/HeaderHome/HeaderHome";
 import axios from "axios";
 
 const Home = () => {

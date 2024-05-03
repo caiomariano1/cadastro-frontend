@@ -2,8 +2,8 @@ import "./Register.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import backgroundImage from "../assets/background-image.jpg";
-import Logo from "../assets/contato-logo.svg";
+import backgroundImage from "../../assets/background-image.jpg";
+// import Logo from "../../assets/contato-logo.svg";
 
 const Register = () => {
   const navigate = useNavigate();
