@@ -24,7 +24,7 @@ const Login = () => {
       .required("É necessário preencher este campo"),
     password: yup
       .string()
-      .min(8, "A senha deve ter pelo menos 8 caracteres")
+      .min(6, "A senha deve ter pelo menos 6 caracteres")
       .required("É necessário preencher este campo"),
   });
 

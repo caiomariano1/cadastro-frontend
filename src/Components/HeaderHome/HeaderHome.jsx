@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./HeaderHome.css";
 import Logo from "../../assets/contato-logo.svg";
+import { useAuth } from "../../hooks/useAuth";
+import { useAuthvalue } from "../../context/AuthContext";
 
 const HeaderHome = () => {
+  const { user } = useAuthvalue();
+  const { logout } = useAuth();
+
   return (
     <header>
       <div className="content">
@@ -12,19 +17,24 @@ const HeaderHome = () => {
           <img src={Logo} style={{ width: "150px" }} />
         </div>
         <div className="navbar-home">
-          <Link className="link" to="/">
-            Login
-          </Link>
-          <span className="bar"> | </span>
-          <Link className="link" to="/register">
-            Cadastro
-          </Link>
+          {!user && (
+            <>
+              <Link className="link" to="/">
+                Login
+              </Link>
+              <span className="bar"> | </span>
+              <Link className="link" to="/register">
+                Cadastro
+              </Link>
+            </>
+          )}
         </div>
         <div className="btn-addContact">
           <Link to="/post">
             <button>Adicionar +</button>
           </Link>
         </div>
+        {user && <button onClick={logout}>Sair</button>}
       </div>
     </header>
   );

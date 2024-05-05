@@ -54,10 +54,34 @@
   flex-direction: column;
 }
 
+.label-none {
+  margin: 0;
+}
+
+.span-label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 1.2rem;
+
+  color: #000;
+
+  font-family: "Roboto";
+}
+
 .form-field {
   background-color: #fff;
   border: 1px solid #cfcfcf;
   border-radius: 5px;
+}
+
+.error-auth {
+  display: block;
+  text-align: center;
+  color: red;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .form-error {
