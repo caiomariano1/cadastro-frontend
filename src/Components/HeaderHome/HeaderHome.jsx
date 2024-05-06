@@ -19,7 +19,7 @@ const HeaderHome = () => {
         <div className="navbar-home">
           {!user && (
             <>
-              <Link className="link" to="/">
+              <Link className="link" to="/login">
                 Login
               </Link>
               <span className="bar"> | </span>

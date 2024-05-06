@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import backgroundImage from "../../assets/background-image.jpg";
 import Logo from "../../assets/contato-logo.svg";
+import backButton from "../../assets/back-button.svg";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -76,6 +77,13 @@ const Login = () => {
           />
         </div>
         <div className="login-right">
+          <Link className="back-btn-login" to="/">
+            <img
+              src={backButton}
+              alt="botão de voltar"
+              style={{ width: "15px" }}
+            />
+          </Link>
           <img
             className="logo-login"
             src={Logo}

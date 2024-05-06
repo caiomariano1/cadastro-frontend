@@ -2,6 +2,7 @@ import "./Register.css";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "../../assets/background-image.jpg";
+import backButton from "../../assets/back-button.svg";
 import { useAuth } from "../../hooks/useAuth";
 // import * as yup from "yup";
 // import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -27,10 +28,10 @@ const Register = () => {
       password,
     };
 
-    if (password !== confirmPassword) {
-      setError("As senhas devem ser iguais");
-      return;
-    }
+    password !== confirmPassword
+      ? setError("As senhas devem ser iguais")
+      : null;
+
     // else if (password.length < 6)
     //   setError(
     //     <>
@@ -100,6 +101,13 @@ const Register = () => {
             style={{ width: "160px" }}
           /> */}
           {/* <h1 className="h1-header-login">Login</h1> */}
+          <Link className="back-btn-login" to="/">
+            <img
+              src={backButton}
+              alt="botão de voltar"
+              style={{ width: "15px" }}
+            />
+          </Link>
           <h2
             className="h2-header-login"
             style={{ fontWeight: "600", color: "#447ce2" }}
@@ -156,7 +164,7 @@ const Register = () => {
 
           <p className="p-login">
             Já possui uma conta?
-            <Link className="link-login" to="/">
+            <Link className="link-login" to="/login">
               {" "}
               Entre
             </Link>
