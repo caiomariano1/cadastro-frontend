@@ -36,7 +36,7 @@ const Edit = () => {
       .put(`https://localhost:7086/api/Contato/${id}`, data)
       .then(() => {
         console.log("Funcionou");
-        navigate("/home");
+        navigate("/");
       })
       .catch(() => {
         console.log("Não funcionou");

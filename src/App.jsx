@@ -30,22 +30,19 @@ function App() {
     <AuthProvider value={{ user }}>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route
-            path="/"
-            element={!user ? <Login /> : <Navigate to="/home" />}
+            path="/login"
+            element={!user ? <Login /> : <Navigate to="/" />}
           />
           <Route
             path="/register"
-            element={!user ? <Register /> : <Navigate to="/home" />}
+            element={!user ? <Register /> : <Navigate to="/" />}
           />
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/post"
-            element={user ? <Post /> : <Navigate to="/home" />}
-          />
+          <Route path="/post" element={user ? <Post /> : <Navigate to="/" />} />
           <Route
             path="/edit/:id"
-            element={user ? <Edit /> : <Navigate to="/home" />}
+            element={user ? <Edit /> : <Navigate to="/" />}
           />
         </Routes>
       </BrowserRouter>

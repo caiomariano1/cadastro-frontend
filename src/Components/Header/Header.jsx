@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="content">
-        <Link to="/home">
+        <Link to="/">
           <img src={backButton} style={{ width: "50px" }} />
         </Link>
       </div>
