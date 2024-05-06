@@ -3,20 +3,24 @@ import "./Home.css";
 import { useState, useEffect } from "react";
 import HeaderHome from "../../Components/HeaderHome/HeaderHome";
 import axios from "axios";
+import { useAuthvalue } from "../../context/AuthContext";
 
 const Home = () => {
+  const { user } = useAuthvalue();
   const [contato, setContato] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://localhost:7086/api/Contato")
-      .then((response) => {
-        setContato(response.data);
-      })
-      .catch(() => {
-        console.log("deu ruim");
-      });
-  }, []);
+    user
+      ? axios
+          .get("https://localhost:7086/api/Contato")
+          .then((response) => {
+            setContato(response.data);
+          })
+          .catch(() => {
+            console.log("deu ruim");
+          })
+      : setContato([]);
+  }, [user]);
 
   function deleteContact(id) {
     axios.delete(`https://localhost:7086/api/Contato/${id}`);

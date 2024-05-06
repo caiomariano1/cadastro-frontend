@@ -85,7 +85,7 @@ export const useAuth = () => {
       } else if (error.message.includes("wrong-password")) {
         systemError = "Senha incorreta";
       } else {
-        systemError = "Ocorreu um erro";
+        systemError = "Email ou senha inválidos";
       }
 
       console.log(systemError);
