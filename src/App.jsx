@@ -38,11 +38,14 @@ function App() {
             path="/register"
             element={!user ? <Register /> : <Navigate to="/home" />}
           />
-          <Route path="/home" element={user ? <Home /> : <Navigate to="/" />} />
-          <Route path="/post" element={user ? <Post /> : <Navigate to="/" />} />
+          <Route path="/home" element={<Home />} />
+          <Route
+            path="/post"
+            element={user ? <Post /> : <Navigate to="/home" />}
+          />
           <Route
             path="/edit/:id"
-            element={user ? <Edit /> : <Navigate to="/" />}
+            element={user ? <Edit /> : <Navigate to="/home" />}
           />
         </Routes>
       </BrowserRouter>

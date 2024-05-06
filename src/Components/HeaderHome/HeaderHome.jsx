@@ -28,13 +28,19 @@ const HeaderHome = () => {
               </Link>
             </>
           )}
+          {user && (
+            <>
+              <button className="btn-exit" onClick={logout}>
+                Sair da conta
+              </button>
+            </>
+          )}
         </div>
         <div className="btn-addContact">
           <Link to="/post">
             <button>Adicionar +</button>
           </Link>
         </div>
-        {user && <button onClick={logout}>Sair</button>}
       </div>
     </header>
   );
