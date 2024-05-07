@@ -36,11 +36,11 @@ const HeaderHome = () => {
             </>
           )}
         </div>
-        <div className="btn-addContact">
+        {/* <div className="btn-addContact">
           <Link to="/post">
             <button>Adicionar +</button>
           </Link>
-        </div>
+        </div> */}
       </div>
     </header>
   );
