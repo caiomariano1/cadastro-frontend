@@ -5,11 +5,18 @@ main {
   padding: 3rem 0;
 }
 
+/* .background-post {
+  background: radial-gradient(circle, #12085f7e, #44607178, #12085f7e);
+
+  height: calc(100vh - 100px);
+} */
+
 .card-post {
   background-color: #ffffffde;
   box-shadow: #64646f33 0px 7px 29px 0px;
   padding: 30px 70px;
   border-radius: 15px;
+  /* height: 75%; */
 }
 
 .card-post h1 {

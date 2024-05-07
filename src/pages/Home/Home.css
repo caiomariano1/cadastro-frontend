@@ -1,3 +1,7 @@
+.main-home {
+  padding: 0;
+}
+
 main header {
   display: flex;
   box-shadow: none;
@@ -38,7 +42,7 @@ main .cards .card {
   padding: 30px 40px;
   width: 600px;
 
-  border-radius: 7px;
+  border-radius: 32px 64px;
   margin-top: 40px;
 }
 
@@ -118,6 +122,44 @@ p {
 .btn-delete button:hover {
   background-color: #ff000095;
   transition: 0.2s;
+}
+
+.btn-add button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-size: 1.2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  background-color: #447ce2;
+  border: 0;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px 100px / 120px 100px;
+  cursor: pointer;
+}
+
+.btn-add button:hover {
+  transition: 0.2s;
+  background-color: #538af0;
+}
+
+.no-user {
+  position: absolute;
+  font-family: "Roboto";
+  font-size: 60px;
+  font-weight: 200;
+  color: #fff;
+  padding: 100px 200px 200px 200px;
+  text-align: center;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.background-home {
+  opacity: 60%;
+  width: 100%;
+  height: calc(100vh - 100px);
 }
 
 /* .loading {

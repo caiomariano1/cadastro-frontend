@@ -39,7 +39,7 @@ const Post = () => {
     <div>
       <Header />
 
-      <main>
+      <main className="background-post">
         <div className="card-post">
           <h1>Criar contato</h1>
           <div className="line-post"></div>
