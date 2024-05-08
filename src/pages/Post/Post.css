@@ -5,11 +5,11 @@ main {
   padding: 3rem 0;
 }
 
-/* .background-post {
-  background: radial-gradient(circle, #12085f7e, #44607178, #12085f7e);
+.background-post {
+  background: linear-gradient(to right, #ffffff7d, #c7dbe8e2, #ffffff7d);
 
   height: calc(100vh - 100px);
-} */
+}
 
 .card-post {
   background-color: #ffffffde;
