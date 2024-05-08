@@ -40,7 +40,17 @@ const Post = () => {
       <Header />
 
       <main className="background-post">
-        <div className="card-post">
+        <div
+          className="card-post"
+          style={{
+            height:
+              errors.nome?.message && errors.tel?.message
+                ? "90%"
+                : errors.nome?.message || errors.tel?.message
+                ? "85%"
+                : "75%",
+          }}
+        >
           <h1>Criar contato</h1>
           <div className="line-post"></div>
 

@@ -45,8 +45,18 @@ const Edit = () => {
   return (
     <div>
       <Header />
-      <main>
-        <div className="card-post">
+      <main className="background-post">
+        <div
+          className="card-post"
+          style={{
+            height:
+              errors.nome?.message && errors.tel?.message
+                ? "90%"
+                : errors.nome?.message || errors.tel?.message
+                ? "85%"
+                : "75%",
+          }}
+        >
           <h1>Editar contato</h1>
           <div className="line-post"></div>
 
