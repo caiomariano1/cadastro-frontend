@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "axios";
 import "./Post.css";
+import axiosInstance from "../../Services/AxiosConfig";
 
 const validationPost = yup.object().shape({
   nome: yup.string().required("Nome é obrigatório"),
@@ -25,8 +25,8 @@ const Post = () => {
   });
 
   const addContact = (data) =>
-    axios
-      .post("https://localhost:7086/api/Contato", data)
+    axiosInstance
+      .post("/Contato", data)
       .then(() => {
         console.log("Funcionou");
         navigate("/");

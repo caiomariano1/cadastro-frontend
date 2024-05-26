@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import axiosInstance from "../../Services/AxiosConfig";
 
 const validationPost = yup.object().shape({
   nome: yup.string().required("Nome é obrigatório"),
@@ -26,13 +26,13 @@ const Edit = () => {
   });
 
   useEffect(() => {
-    axios.get(`https://localhost:7086/api/Contato/${id}`).then((response) => {
+    axiosInstance.get(`/Contato/${id}`).then((response) => {
       reset(response.data);
     });
   }, []);
 
   const addContact = (data) =>
-    axios
+    axiosInstance
       .put(`https://localhost:7086/api/Contato/${id}`, data)
       .then(() => {
         console.log("Funcionou");
