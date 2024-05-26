@@ -2,31 +2,48 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import { useState, useEffect } from "react";
 import HeaderHome from "../../Components/HeaderHome/HeaderHome";
-import axios from "axios";
-import { useAuthvalue } from "../../context/AuthContext";
+import axiosInstance from "../../Services/AxiosConfig";
+// import { useAuthvalue } from "../../context/AuthContext";
 import backgroundHome from "../../assets/background-home.jpg";
 
 const Home = () => {
-  const { user } = useAuthvalue();
+  // const { user } = useAuthvalue();
   const [contato, setContato] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    user
-      ? axios
-          .get("https://localhost:7086/api/Contato")
-          .then((response) => {
-            setContato(response.data);
-          })
-          .catch(() => {
-            console.log("deu ruim");
-          })
-      : setContato([]);
-  }, [user]);
+    const token = localStorage.getItem("token");
+    if (token) {
+      axiosInstance.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${token}`;
+      console.log("Token encontrado");
+    } else {
+      console.log("Token não encontrado");
+    }
 
-  function deleteContact(id) {
-    axios.delete(`https://localhost:7086/api/Contato/${id}`);
-    setContato(contato.filter((contato) => contato.id !== id));
-  }
+    axiosInstance
+      .get("/contato")
+      .then((response) => {
+        setData(response.data);
+        setContato(response.data);
+      })
+      .catch((error) => {
+        console.log("Erro ao buscar dados protegidos:", error);
+        setContato([]);
+      });
+  }, []);
+
+  const deleteContact = (id) => {
+    axiosInstance
+      .delete(`/contato/${id}`)
+      .then(() => {
+        setContato(contato.filter((c) => c.id !== id));
+      })
+      .catch((error) => {
+        console.log("Erro ao deletar contato:", error);
+      });
+  };
 
   return (
     <div className="divhome">
@@ -58,25 +75,25 @@ const Home = () => {
             );
           })}
         </div>
-        {user && (
-          <div className="btn-add">
-            <Link to="/post">
-              <button>Adicionar +</button>
-            </Link>
-          </div>
-        )}
-        {!user && (
-          <>
-            <img
-              className="background-home"
-              src={backgroundHome}
-              alt="imagem de um telefone azul"
-            />
-            <h1 className="no-user">
-              Crie uma conta para adicionar os seus contatos
-            </h1>
-          </>
-        )}
+        {/* {user && ( */}
+        <div className="btn-add">
+          <Link to="/post">
+            <button>Adicionar +</button>
+          </Link>
+        </div>
+        {/* )} */}
+        {/* {!user && ( */}
+        {/* <>
+          <img
+            className="background-home"
+            src={backgroundHome}
+            alt="imagem de um telefone azul"
+          />
+          <h1 className="no-user">
+            Crie uma conta para adicionar os seus contatos
+          </h1>
+        </> */}
+        {/* )} */}
       </main>
     </div>
   );

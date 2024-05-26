@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import backgroundImage from "../../assets/background-image.jpg";
 import backButton from "../../assets/back-button.svg";
-import { useAuth } from "../../hooks/useAuth";
+import axios from "axios";
+import axiosInstance from "../../Services/AxiosConfig";
+// import { useAuth } from "../../hooks/useAuth";
 // import * as yup from "yup";
 // import { Formik, Form, Field, ErrorMessage } from "formik";
 // import Logo from "../../assets/contato-logo.svg";
@@ -14,23 +16,36 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [nome, setNome] = useState("");
   const [error, setError] = useState("");
 
-  const { createUser, error: authError, loading } = useAuth("");
+  // const { createUser, error: authError, loading } = useAuth("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setError("");
+    setError(null);
 
-    const user = {
-      email,
-      password,
-    };
+    // password !== confirmPassword
+    //   ? setError("As senhas devem ser iguais")
+    //   : null;
 
-    password !== confirmPassword
-      ? setError("As senhas devem ser iguais")
-      : null;
+    try {
+      const response = await axiosInstance.post("/usuario/cadastro", {
+        email,
+        password,
+        nome,
+      });
+
+      const token = response.data.token;
+      localStorage.setItem("token", token);
+
+      console.log("Cadastro realizado com sucesso!");
+      navigate("/");
+    } catch (error) {
+      console.error("Erro ao fazer cadastro:", error);
+      setError(error.message);
+    }
 
     // else if (password.length < 6)
     //   setError(
@@ -39,16 +54,16 @@ const Register = () => {
     //     </>
     //   );
 
-    const response = await createUser(user);
+    // const response = await createUser(user);
 
-    console.log(response);
+    // console.log(response);
   };
 
-  useEffect(() => {
-    if (authError) {
-      setError(authError);
-    }
-  }, [authError]);
+  // useEffect(() => {
+  //   if (authError) {
+  //     setError(authError);
+  //   }
+  // }, [authError]);
 
   // const handleClickRegister = async (values) => {
   //   console.log(values);
@@ -116,6 +131,17 @@ const Register = () => {
           </h2>
 
           <form className="login-form" onSubmit={handleSubmit}>
+            <label>
+              <span className="span-label">Nome</span>
+              <input
+                className="form-field"
+                type="text"
+                name="nome"
+                required
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+              />
+            </label>
             <label className="label-none">
               <span className="span-label">Email</span>
               <input
@@ -138,7 +164,7 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-            <label>
+            {/* <label>
               <span className="span-label">Confirmação de senha</span>
               <input
                 className="form-field"
@@ -148,17 +174,18 @@ const Register = () => {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-            </label>
-            {!loading && (
-              <button className="btn-login" type="submit">
-                Entrar
-              </button>
-            )}
-            {loading && (
-              <button className="btn-login" disabled>
-                Aguarde...
-              </button>
-            )}
+            </label> */}
+
+            {/* {!loading && ( */}
+            <button className="btn-login" type="submit">
+              Entrar
+            </button>
+            {/* )} */}
+            {/* {loading && ( */}
+            {/* <button className="btn-login" disabled>
+              Aguarde...
+            </button> */}
+            {/* )} */}
             {error && <p className="error-auth">{error}</p>}
           </form>
 

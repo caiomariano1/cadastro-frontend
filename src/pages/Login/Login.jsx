@@ -1,12 +1,14 @@
 import "./Login.css";
 import { useState, useEffect } from "react";
-import { useAuth } from "../../hooks/useAuth";
+// import { useAuth } from "../../hooks/useAuth";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import backgroundImage from "../../assets/background-image.jpg";
 import Logo from "../../assets/contato-logo.svg";
 import backButton from "../../assets/back-button.svg";
+import axios from "axios";
+import axiosInstance from "../../Services/AxiosConfig";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,28 +17,39 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { login, error: authError, loading } = useAuth("");
+  // const { login, error: authError, loading } = useAuth("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setError("");
+    setError(null);
 
-    const user = {
-      email,
-      password,
-    };
+    try {
+      const response = await axiosInstance.post("/usuario/login", {
+        email,
+        password,
+      });
 
-    const response = await login(user);
+      const token = response.data.token;
+      localStorage.setItem("token", token);
 
-    console.log(response);
+      console.log("Login realizado com sucesso!");
+      navigate("/");
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      setError(error.message);
+    }
+
+    // const response = await login(user);
+
+    // console.log(response);
   };
 
-  useEffect(() => {
-    if (authError) {
-      setError(authError);
-    }
-  }, [authError]);
+  // useEffect(() => {
+  //   if (authError) {
+  //     setError(authError);
+  //   }
+  // }, [authError]);
 
   // const handleClickLogin = async (values) => {
   //   console.log(values);
@@ -117,16 +130,16 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
-            {!loading && (
-              <button className="btn-login" type="submit">
-                Entrar
-              </button>
-            )}
-            {loading && (
-              <button className="btn-login" disabled>
-                Aguarde...
-              </button>
-            )}
+            {/* {!loading && ( */}
+            <button className="btn-login" type="submit">
+              Entrar
+            </button>
+            {/* )} */}
+            {/* {loading && ( */}
+            {/* <button className="btn-login" disabled>
+              Aguarde...
+            </button> */}
+            {/* )} */}
             {error && <p className="error-auth">{error}</p>}
           </form>
           <p className="p-login">
