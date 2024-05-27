@@ -2,12 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./HeaderHome.css";
 import Logo from "../../assets/contato-logo.svg";
-// import { useAuth } from "../../hooks/useAuth";
-// import { useAuthvalue } from "../../context/AuthContext";
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
 
 const HeaderHome = () => {
   // const { user } = useAuthvalue();
   // const { logout } = useAuth();
+
+  const navigate = useNavigate();
+  const { isAuthenticated, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <header>
@@ -17,24 +26,24 @@ const HeaderHome = () => {
           <img src={Logo} style={{ width: "150px" }} />
         </div>
         <div className="navbar-home">
-          {/* {!user && ( */}
-          <>
-            <Link className="link" to="/login">
-              Login
-            </Link>
-            <span className="bar"> | </span>
-            <Link className="link" to="/register">
-              Cadastro
-            </Link>
-          </>
-          {/* )} */}
-          {/* {user && ( */}
-          <>
-            {/* <button className="btn-exit" onClick={logout}>
-              Sair da conta
-            </button> */}
-          </>
-          {/* )} */}
+          {!isAuthenticated && (
+            <>
+              <Link className="link" to="/login">
+                Login
+              </Link>
+              <span className="bar"> | </span>
+              <Link className="link" to="/register">
+                Cadastro
+              </Link>
+            </>
+          )}
+          {isAuthenticated && (
+            <>
+              <button className="btn-exit" onClick={handleLogout}>
+                Sair da conta
+              </button>
+            </>
+          )}
         </div>
         {/* <div className="btn-addContact">
           <Link to="/post">
