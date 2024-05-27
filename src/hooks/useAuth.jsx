@@ -1,3 +1,30 @@
+import { useState, useEffect, useContext } from "react";
+import AuthContext from "../context/AuthContext";
+
+const useAuth = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsAuthenticated(!!token);
+  }, []);
+
+  //   const login = (token) => {
+  //     localStorage.setItem("token", token);
+  //     setIsAuthenticated(true);
+  //   };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+  };
+
+  //   return { isAuthenticated, setIsAuthenticated, logout };
+  return { isAuthenticated, logout };
+};
+
+export default useAuth;
+
 // import { app } from "../Services/firebaseConfig";
 
 // import {

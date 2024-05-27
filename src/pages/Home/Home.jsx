@@ -3,11 +3,11 @@ import "./Home.css";
 import { useState, useEffect } from "react";
 import HeaderHome from "../../Components/HeaderHome/HeaderHome";
 import axiosInstance from "../../Services/AxiosConfig";
-// import { useAuthvalue } from "../../context/AuthContext";
+import useAuth from "../../hooks/useAuth";
 import backgroundHome from "../../assets/background-home.jpg";
 
 const Home = () => {
-  // const { user } = useAuthvalue();
+  const { isAuthenticated } = useAuth();
   const [contato, setContato] = useState([]);
   const [data, setData] = useState([]);
 
@@ -75,25 +75,25 @@ const Home = () => {
             );
           })}
         </div>
-        {/* {user && ( */}
-        <div className="btn-add">
-          <Link to="/post">
-            <button>Adicionar +</button>
-          </Link>
-        </div>
-        {/* )} */}
-        {/* {!user && ( */}
-        {/* <>
-          <img
-            className="background-home"
-            src={backgroundHome}
-            alt="imagem de um telefone azul"
-          />
-          <h1 className="no-user">
-            Crie uma conta para adicionar os seus contatos
-          </h1>
-        </> */}
-        {/* )} */}
+        {isAuthenticated && (
+          <div className="btn-add">
+            <Link to="/post">
+              <button>Adicionar +</button>
+            </Link>
+          </div>
+        )}
+        {!isAuthenticated && (
+          <>
+            <img
+              className="background-home"
+              src={backgroundHome}
+              alt="imagem de um telefone azul"
+            />
+            <h1 className="no-user">
+              Crie uma conta para adicionar os seus contatos
+            </h1>
+          </>
+        )}
       </main>
     </div>
   );

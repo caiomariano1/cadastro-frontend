@@ -1,6 +1,6 @@
 import "./Login.css";
 import { useState, useEffect } from "react";
-// import { useAuth } from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
@@ -12,7 +12,7 @@ import axiosInstance from "../../Services/AxiosConfig";
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const { setIsAuthenticated } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -31,6 +31,7 @@ const Login = () => {
       });
 
       const token = response.data.token;
+      // Login(token);
       localStorage.setItem("token", token);
 
       console.log("Login realizado com sucesso!");
