@@ -11,7 +11,7 @@ import Edit from "./pages/Edit/Edit";
 // import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
-  const [user, setUser] = useState(undefined);
+  // const [user, setUser] = useState(undefined);
   // const { auth } = useAuth();
 
   // const loadingUser = user === undefined;

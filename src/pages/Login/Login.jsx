@@ -12,7 +12,7 @@ import axiosInstance from "../../Services/AxiosConfig";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -34,8 +34,10 @@ const Login = () => {
       // Login(token);
       localStorage.setItem("token", token);
 
+      // if (isAuthenticated) {
       console.log("Login realizado com sucesso!");
       navigate("/");
+      // }
     } catch (error) {
       console.error("Erro ao fazer login:", error);
       setError(error.message);

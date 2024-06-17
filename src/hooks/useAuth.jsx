@@ -3,24 +3,37 @@ import AuthContext from "../context/AuthContext";
 
 const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState("");
+  // const [cancelled, setCancelled] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsAuthenticated(!!token);
-  }, []);
+  // function checkIfIsCancelled() {
+  //   if (cancelled) {
+  //     return;
+  //   }
+  // }
 
-  //   const login = (token) => {
-  //     localStorage.setItem("token", token);
-  //     setIsAuthenticated(true);
-  //   };
+  return useContext(AuthContext);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    setIsAuthenticated(false);
-  };
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   setIsAuthenticated(!!token);
+  // }, []);
 
-  //   return { isAuthenticated, setIsAuthenticated, logout };
-  return { isAuthenticated, logout };
+  // //   const login = (token) => {
+  // //     localStorage.setItem("token", token);
+  // //     setIsAuthenticated(true);
+  // //   };
+
+  // const logout = async () => {
+  //   localStorage.removeItem("token");
+  //   setIsAuthenticated(false);
+  // };
+
+  // useEffect(() => {
+  //   return () => setCancelled(true);
+  // }, []);
+
+  // //   return { isAuthenticated, setIsAuthenticated, logout };
+  // return { isAuthenticated, logout };
 };
 
 export default useAuth;
