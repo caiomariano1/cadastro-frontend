@@ -13,8 +13,8 @@ const HeaderHome = () => {
   const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuth();
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate("/");
   };
 
@@ -26,7 +26,11 @@ const HeaderHome = () => {
           <img src={Logo} style={{ width: "150px" }} />
         </div>
         <div className="navbar-home">
-          {!isAuthenticated && (
+          {isAuthenticated ? (
+            <button className="btn-exit" onClick={handleLogout}>
+              Sair da conta
+            </button>
+          ) : (
             <>
               <Link className="link" to="/login">
                 Login
@@ -37,19 +41,7 @@ const HeaderHome = () => {
               </Link>
             </>
           )}
-          {isAuthenticated && (
-            <>
-              <button className="btn-exit" onClick={handleLogout}>
-                Sair da conta
-              </button>
-            </>
-          )}
         </div>
-        {/* <div className="btn-addContact">
-          <Link to="/post">
-            <button>Adicionar +</button>
-          </Link>
-        </div> */}
       </div>
     </header>
   );
