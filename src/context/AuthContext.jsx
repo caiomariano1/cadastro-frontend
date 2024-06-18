@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
-export function AuthProvider({ children, value }) {
+export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ export function AuthProvider({ children, value }) {
   const login = (token) => {
     localStorage.setItem("token", token);
     setIsAuthenticated(true);
-    // navigate("/");
+    navigate("/");
   };
 
   const logout = () => {
@@ -25,14 +25,14 @@ export function AuthProvider({ children, value }) {
 
   return (
     <AuthContext.Provider
-      value={{ value, isAuthenticated, setIsAuthenticated, login, logout }}
+      value={{ isAuthenticated, setIsAuthenticated, login, logout }}
     >
       {children}
     </AuthContext.Provider>
   );
 }
 
-export function useAuthvalue() {
+export function useAuth() {
   return useContext(AuthContext);
 }
 
