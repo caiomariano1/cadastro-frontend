@@ -18,6 +18,12 @@ export function AuthProvider({ children }) {
     navigate("/");
   };
 
+  const register = (token) => {
+    localStorage.setItem("token", token);
+    setIsAuthenticated(true);
+    navigate("/");
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
@@ -25,7 +31,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, setIsAuthenticated, login, logout }}
+      value={{ isAuthenticated, setIsAuthenticated, login, register, logout }}
     >
       {children}
     </AuthContext.Provider>
