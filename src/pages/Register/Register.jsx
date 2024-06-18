@@ -5,6 +5,8 @@ import backgroundImage from "../../assets/background-image.jpg";
 import backButton from "../../assets/back-button.svg";
 import axios from "axios";
 import axiosInstance from "../../Services/AxiosConfig";
+import useAuth from "../../hooks/useAuth";
+
 // import { useAuth } from "../../hooks/useAuth";
 // import * as yup from "yup";
 // import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -12,18 +14,17 @@ import axiosInstance from "../../Services/AxiosConfig";
 
 const Register = () => {
   const navigate = useNavigate();
-
+  const { register } = useAuth();
+  const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [nome, setNome] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
   // const { createUser, error: authError, loading } = useAuth("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setError(null);
 
     // password !== confirmPassword
@@ -32,32 +33,34 @@ const Register = () => {
 
     try {
       const response = await axiosInstance.post("/usuario/cadastro", {
+        nome,
         email,
         password,
-        nome,
       });
 
       const token = response.data.token;
-      localStorage.setItem("token", token);
-
-      console.log("Cadastro realizado com sucesso!");
-      navigate("/");
+      if (token) {
+        register(token);
+        navigate("/");
+      } else {
+        setError("Token não recebido.");
+      }
     } catch (error) {
       console.error("Erro ao fazer cadastro:", error);
       setError(error.message);
     }
-
-    // else if (password.length < 6)
-    //   setError(
-    //     <>
-    //       A senha deve conter pelo menos <br /> 6 caracteres
-    //     </>
-    //   );
-
-    // const response = await createUser(user);
-
-    // console.log(response);
   };
+
+  // else if (password.length < 6)
+  //   setError(
+  //     <>
+  //       A senha deve conter pelo menos <br /> 6 caracteres
+  //     </>
+  //   );
+
+  // const response = await createUser(user);
+
+  // console.log(response);
 
   // useEffect(() => {
   //   if (authError) {
